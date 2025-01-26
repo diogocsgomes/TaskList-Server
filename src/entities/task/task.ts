@@ -10,7 +10,7 @@ export class Task {
     taskName: string;
   
     @Column()
-    toDo: boolean; // a boolean
+    done: boolean; // a boolean
 
 
 }
