@@ -48,6 +48,13 @@ export class TaskController {
     return this.taskService.deleteTask(id);
   }
 
+  @Post('/addtask')
+  async addTask(@Body() data: any){
+    Logger.log("I want to add " + data.taskName);
+    return this.taskService.addTask(data.taskName);
+
+  }
+
 
 
 }

@@ -52,6 +52,11 @@ export class TaskService {
     Logger.log('I came here to delete somethin' + id);
     return {message: result + ' rows deleted'};
   }
+  async addTask(taskName: string){
+    Logger.log("I want to add " + taskName);
+    const result = await this.taskRepository.query('INSERT INTO task (taskName, done) values (? , false)',[taskName]);
+    return {message: result };
+  }
 
 
 
