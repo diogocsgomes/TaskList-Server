@@ -47,6 +47,12 @@ export class TaskService {
   }
 
 
+  async deleteTask(id: number){
+    const result = await this.taskRepository.query('DELETE FROM task where id = ?',[id]);
+    Logger.log('I came here to delete somethin' + id);
+    return {message: result + ' rows deleted'};
+  }
+
 
 
   async test() {

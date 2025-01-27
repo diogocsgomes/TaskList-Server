@@ -1,4 +1,4 @@
-import { Controller , Get, Post,Put, Body,Param} from '@nestjs/common';
+import { Controller , Get, Post,Put,Delete, Body,Param} from '@nestjs/common';
 import { TaskService } from './task.service';
 import { Task } from 'src/entities/task/task';
 import { Logger } from '@nestjs/common';
@@ -38,6 +38,14 @@ export class TaskController {
   async changeToUndone(@Body() updateData: any)
   {
     return this.taskService.changeToUndone(updateData.id);
+  }
+
+
+  @Delete('/delete/:id')
+  async deleteTask(@Param('id') id:number)
+  {
+    Logger.log('i want do delete ' + id);
+    return this.taskService.deleteTask(id);
   }
 
 
